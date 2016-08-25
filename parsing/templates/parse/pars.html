@@ -3,12 +3,17 @@
 
 {% block content %}
 
+<div class="ui list">
 {% for paginator in paginator_html %}
-
-    {{ paginator }} - {{ paginator.price }}<br />
-    <br />
+      <a class="item">
+        <i class="right triangle icon"></i>
+        <div class="content">
+          <div class="header">{{ paginator }}</div>
+          <div class="description desc_new_style">{{ paginator.price }} USD</div>
+        </div>
+      </a>
 {% endfor %}
-
+</div>
 
 <div class="ui list">
 

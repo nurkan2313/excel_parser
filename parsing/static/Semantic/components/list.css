@@ -164,6 +164,10 @@ ol.ui.list ol li,
   color: rgba(0, 0, 0, 0.87);
 }
 
+.desc_new_style {
+    color: rgba(8, 34, 161, 0.7)!important;
+    border-bottom: solid;
+}
 /* Description */
 .ui.list .list > .item .description,
 .ui.list > .item .description {
