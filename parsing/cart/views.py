@@ -23,7 +23,7 @@ def add_product_to_cart(request, product_id):
         except IntegrityError:
             create_product = CartItem.objects.create(product=product)
             cart.cart.add(int(create_product.id))
-            messages.success(request, 'success')
+            messages.success(request, 'Вы добавили новый товар в корзину')
             return redirect('/')
 
 

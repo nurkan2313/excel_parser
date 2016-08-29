@@ -194,24 +194,12 @@
     </div>
 
   </div>
-
-
-
     <ul>
         {% for i in paginator_html %}
-        <li>
-        {{ i }}
-        {{ i.price }}
+        <li>{{ i }}</li>
+        <li>{{ i.price }}</li>
         <a href="{% url 'cart:add_product' i.id %}"> добавить в корзину</a>
         {% endfor %}
-             {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </li>
     </ul>
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">
@@ -240,7 +228,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="ui inverted vertical footer segment">
     <div class="ui container">
