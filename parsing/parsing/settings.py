@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'cart',
     'profiles',
     'accounts',
+    'django_rq',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +75,14 @@ DATABASES = {
     }
 }
 
-
+RQ_QUEUES = {
+    'default': {
+        'HOST': 'localhost',
+        'PORT': 6379,
+        'DB': 0,
+        'DEFAULT_TIMEOUT': 360,
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
