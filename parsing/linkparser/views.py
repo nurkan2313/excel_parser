@@ -7,6 +7,7 @@ from cart.models import Cart, CartItem
 from parser_test import excel_reader
 from forms import UploadFileForm
 from django.contrib import messages
+import django_rq
 
 
 def home(request):
@@ -22,7 +23,9 @@ def home(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            excel_reader(request.FILES['file'])
+            queue = django_rq.get_queue()
+            queue.enqueue(excel_reader, request.FILES['file'])
+            # excel_reader(request.FILES['file'])
             messages.success(request, 'Файл был добавлен')
     else:
         form = UploadFileForm()
