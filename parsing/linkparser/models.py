@@ -7,6 +7,7 @@ from django.db import models
 class Goods(models.Model):
     title = models.CharField(max_length=255, null=True, blank=True)
     price = models.DecimalField(max_digits=20, decimal_places=2, null=True, blank=True)
+    slug = models.SlugField(blank=True)
 
     class Meta:
         verbose_name = u'Товар'

@@ -4,7 +4,7 @@ from .models import Profile
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('birthday', 'create_add', 'first_name')
+    list_display = ('first_name', 'last_name')
     model = Profile
 
 

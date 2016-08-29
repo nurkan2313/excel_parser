@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+{% for i in cart.cart.all %}
+        <ul>
+            <li>{{ i }}</li>
+            <li>{{ i.price }}</li>
+        </ul>
+
+    {% endfor %}
+{% endblock %}
