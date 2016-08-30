@@ -1,9 +1,7 @@
 # coding:utf-8
-from django.shortcuts import render, redirect
-from openpyxl import load_workbook
+from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from models import Goods
-from cart.models import Cart, CartItem
 from parser_test import excel_reader
 from forms import UploadFileForm
 from django.contrib import messages
@@ -25,7 +23,6 @@ def home(request):
         if form.is_valid():
             queue = django_rq.get_queue()
             queue.enqueue(excel_reader, request.FILES['file'])
-            # excel_reader(request.FILES['file'])
             messages.success(request, 'Файл был добавлен')
     else:
         form = UploadFileForm()

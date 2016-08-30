@@ -29,7 +29,7 @@ def add_product_to_cart(request, product_id):
 
 def cart_list(request):
     user_cart = request.user.cart
-    return render(request, 'cart/cart.html', {"cart": cart_list})
+    return render(request, 'cart/cart.html', {"cart": user_cart})
 
 
 
